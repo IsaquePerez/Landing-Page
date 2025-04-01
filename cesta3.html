@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lembrancinhas da Tia Paula - Cestas de Café da Manhã</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-primaria: #E75480; /* Rosa principal */
+            --cor-secundaria: #FFD1DC; /* Rosa claro */
+            --cor-destaque: #FF69B4; /* Rosa médio */
+            --cor-texto: #5C3A21;
+            --cor-fundo: #FFF0F5; /* Rosa muito claro */
+            --cor-branco: #FFFFFF;
+            --cor-escuro: #8B4513;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--cor-texto);
+            line-height: 1.6;
+            background-color: var(--cor-fundo);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            color: var(--cor-primaria);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background-color: var(--cor-branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--cor-primaria);
+            margin-left: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-right: 20px;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .menu a:hover {
+            color: var(--cor-primaria);
+        }
+        
+        .btn-pedido {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pedido:hover {
+            background-color: var(--cor-destaque);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(231, 84, 128, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-branco) 100%);
+            padding: 150px 5% 100px;
+            margin-top: 90px;
+            text-align: center;
+            flex-direction: column;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--cor-primaria);
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--cor-escuro);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            margin-top: 40px;
+            position: relative;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 5px solid var(--cor-branco);
+            transform: rotate(3deg);
+            transition: transform 0.5s;
+        }
+        
+        .hero-image img:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .btn-primary {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(231, 84, 128, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--cor-destaque);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(231, 84, 128, 0.4);
+        }
+        
+        /* Seção Sobre */
+        .sobre {
+            padding: 100px 5%;
+            background-color: var(--cor-branco);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sobre::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(90deg, var(--cor-primaria), var(--cor-destaque), var(--cor-secundaria));
+        }
+        
+        .sobre h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--cor-primaria);
+        }
+        
+        .sobre p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Seção Produtos */
+        .produtos {
+            padding: 100px 5%;
+            text-align: center;
+            background-color: var(--cor-fundo);
+        }
+        
+        .produtos h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: var(--cor-primaria);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .produtos h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--cor-destaque);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .cestas-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .cesta-item {
+            background-color: var(--cor-branco);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 20px;
+            border-top: 5px solid var(--cor-primaria);
+        }
+        
+        .cesta-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .cesta-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .cesta-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .cesta-item h3 {
+            margin: 20px 0 10px;
+            color: var(--cor-primaria);
+            font-size: 2rem;
+        }
+        
+        .cesta-item p {
+            padding: 0 20px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .preco {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--cor-primaria);
+            display: block;
+            margin: 15px 0;
+        }
+        
+        .btn-comprar {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .btn-comprar:hover {
+            background-color: var(--cor-destaque);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(231, 84, 128, 0.3);
+        }
+        
+        /* Seção Depoimentos */
+        .depoimentos {
+            padding: 100px 5%;
+            text-align: center;
+            background-color: var(--cor-branco);
+            position: relative;
+        }
+        
+        .depoimentos::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(90deg, var(--cor-primaria), var(--cor-destaque), var(--cor-secundaria));
+        }
+        
+        .depoimentos h2 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: var(--cor-primaria);
+        }
+        
+        .depoimentos-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .depoimento-card {
+            background-color: var(--cor-fundo);
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .depoimento-card::before {
+            content: '“';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--cor-secundaria);
+            font-family: serif;
+            line-height: 1;
+            z-index: 0;
+        }
+        
+        .depoimento-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .depoimento-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--cor-destaque);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .depoimento-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .nome-cliente {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: var(--cor-primaria);
+        }
+        
+        .estrelas {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        /* Seção WhatsApp */
+        .whatsapp {
+            padding: 80px 5%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-branco) 100%);
+        }
+        
+        .whatsapp h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--cor-primaria);
+        }
+        
+        .whatsapp p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        .footer .logo {
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255,255,255,0.3);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #128C7E;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                margin-left: 0;
+                font-size: 1.8rem;
+            }
+            
+            .menu {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-right: 0;
+            }
+            
+            .hero {
+                padding-top: 120px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cestas-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Lembrancinhas da Tia Paula</div>
+        <nav class="menu">
+            <a href="#sobre">Sobre</a>
+            <a href="#produtos">Cestas</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#contato">Contato</a>
+            <a href="https://wa.me/SEUNUMERO" class="btn-pedido">Encomendar</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Cestas de Café da Manhã</h1>
+        <h2>Feitas com amor e carinho</h2>
+        <p>Presenteie quem você ama com nossas cestas artesanais de café da manhã, preparadas com ingredientes frescos e selecionados.</p>
+        <a href="https://wa.me/SEUNUMERO" class="btn-primary">Encomendar pelo WhatsApp</a>
+        
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cesta de café da manhã">
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2>Sobre a Tia Paula</h2>
+            <p>Há mais de 10 anos levando alegria e carinho através de minhas lembrancinhas e cestas de café da manhã. Cada produto é feito com todo cuidado e atenção, como se fosse para minha própria família.</p>
+            <p>Minha missão é transformar momentos simples em memórias especiais através da gastronomia afetiva. Cada cesta é preparada com ingredientes selecionados e muito amor!</p>
+        </div>
+    </section>
+
+    <!-- Seção Produtos -->
+    <section id="produtos" class="produtos">
+        <div class="container">
+            <h2>Nossas Cestas Especiais</h2>
+            
+            <div class="cestas-container">
+                <div class="cesta-item">
+                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cesta Romântica">
+                    <h3>Romântica</h3>
+                    <p>Pães caseiros, queijos finos, frutas da estação, geleias artesanais e café especial</p>
+                    <span class="preco">R$ 129,90</span>
+                    <a href="https://wa.me/SEUNUMERO?text=Olá%20Tia%20Paula,%20gostaria%20de%20encomendar%20a%20Cesta%20Romântica" class="btn-comprar">Encomendar</a>
+                </div>
+                
+                <div class="cesta-item">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cesta Fitness">
+                    <h3>Fitness</h3>
+                    <p>Pães integrais, granola caseira, iogurte natural, mix de frutas e sucos frescos</p>
+                    <span class="preco">R$ 119,90</span>
+                    <a href="https://wa.me/SEUNUMERO?text=Olá%20Tia%20Paula,%20gostaria%20de%20encomendar%20a%20Cesta%20Fitness" class="btn-comprar">Encomendar</a>
+                </div>
+                
+                <div class="cesta-item">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cesta Premium">
+                    <h3>Premium</h3>
+                    <p>Cafés gourmet, pães de fermentação natural, queijos importados e doces finos</p>
+                    <span class="preco">R$ 179,90</span>
+                    <a href="https://wa.me/SEUNUMERO?text=Olá%20Tia%20Paula,%20gostaria%20de%20encomendar%20a%20Cesta%20Premium" class="btn-comprar">Encomendar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Depoimentos -->
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <h2>O que dizem nossos clientes</h2>
+            
+            <div class="depoimentos-container">
+                <div class="depoimento-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
+                    <p>A cesta que encomendei da Tia Paula foi o presente perfeito para minha mãe no Dia das Mães. Ela adorou cada detalhe!</p>
+                    <span class="nome-cliente">Mariana Silva</span>
+                    <div class="estrelas">★★★★★</div>
+                </div>
+                
+                <div class="depoimento-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente">
+                    <p>Surpreendi minha esposa com a cesta romântica e foi um sucesso! Tudo muito fresco e bem apresentado.</p>
+                    <span class="nome-cliente">Carlos Oliveira</span>
+                    <div class="estrelas">★★★★★</div>
+                </div>
+                
+                <div class="depoimento-card">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente">
+                    <p>Já encomendei várias vezes para presentear clientes e sempre recebo elogios. A Tia Paula capricha em cada detalhe!</p>
+                    <span class="nome-cliente">Ana Paula Costa</span>
+                    <div class="estrelas">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção WhatsApp -->
+    <section class="whatsapp">
+        <div class="container">
+            <h2>Faça sua encomenda agora mesmo!</h2>
+            <p>Entre em contato diretamente pelo WhatsApp para encomendar sua cesta personalizada ou tirar dúvidas.</p>
+            <a href="https://wa.me/21989504029" class="btn-whatsapp">
+                <span>📱</span> Enviar mensagem
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">Lembrancinhas da Tia Paula</div>
+            <p>Cestas de café da manhã artesanais feitas com amor</p>
+            
+            <div class="social-icons">
+                <a href="#"><span>📱</span></a>
+                <a href="#"><span>📷</span></a>
+                <a href="https://wa.me/21989504029"><span>💬</span></a>
+            </div>
+            
+            <p>(11) 98765-4321 | tiapaula@lembrancinhas.com.br</p>
+            <p>© 2023 Lembrancinhas da Tia Paula. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/21989504029" class="whatsapp-float">
+        💬
+    </a>
+</body>
+</html>
